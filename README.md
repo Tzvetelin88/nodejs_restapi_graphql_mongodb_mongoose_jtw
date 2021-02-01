@@ -45,41 +45,46 @@ type RootMutation {
 ```
 
 ## Simple GraphQL Queries:
-################################## USER CREATE/LOGIN/LIST/UPDATE ##################################
-# Create a new user object in database with 'Mutation'
+### USER CREATE/LOGIN/LIST/UPDATE
+#### Create a new user object in database with 'Mutation'
+```
 mutation {
   createUser(userInput: {email: "test@test.com", name: "Test User", password: "test123"}) {
     _id,
     name
   }
 }
-
-# Get Created user data with 'Query'
+```
+#### Get Created user data with 'Query'
+```
 {
   login(email: "test@test.com", password: "test123") {
     token
     userId
   }
 }
-
-# List User data, e.g. "status"
+```
+#### List User data, e.g. "status"
+```
 {
   user {
     status
   }
 }
-
-# Update User data, e.g. "status"
+```
+#### Update User data, e.g. "status"
+```
 mutation {
   updateStatus(status: "Online") {
     name
     status
   }
 }
+```
 
-
-################################## POST'S GET/CREATE ##################################
-# Create a new Post object in database with 'Mutation'
+### POST'S GET/CREATE
+#### Create a new Post object in database with 'Mutation'
+```
 mutation {
   createPost(postInput:{ title:"test1", content: "Body test 1", imageUrl:"img_url.png" }) {
     _id
@@ -88,8 +93,9 @@ mutation {
     imageUrl
   }
 }
-
-# Get Created Post's data with 'Query'
+```
+#### Get Created Post's data with 'Query'
+```
 {
   posts(page: 1) {
     posts {
@@ -103,8 +109,9 @@ mutation {
     totalPosts
   }
 }
-
-# Get Created Post data with 'Query'
+```
+#### Get Created Post data with 'Query'
+```
 {
 	post(id: "<item_id>") {
     _id
@@ -114,8 +121,9 @@ mutation {
     updatedAt
   }
 }
-
-# Update current POST data with Mutation
+```
+#### Update current POST data with Mutation
+```
 mutation {
   updatePost(id: "<item_id>", postInput:{ title:"test1111", content: "Body test 1111", imageUrl:"img_url.png" }) {
     _id
@@ -124,9 +132,10 @@ mutation {
     imageUrl
   }
 }
-
-# Delete current POST data with Mutation
+```
+#### Delete current POST data with Mutation
+```
 mutation {
   deletePost(id: "<item_id>")
 }
-
+```
