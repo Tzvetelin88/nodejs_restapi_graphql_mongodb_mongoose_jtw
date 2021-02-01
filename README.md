@@ -114,7 +114,7 @@ mutation {
 #### Get Created Post data with 'Query'
 ```
 {
-	post(id: "<item_id>") {
+  post(id: "<item_id>") {
     _id
     title
     content
