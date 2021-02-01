@@ -45,6 +45,7 @@ type RootMutation {
 ```
 
 ## Simple GraphQL Queries:
+
 ### USER CREATE/LOGIN/LIST/UPDATE
 #### Create a new user object in database with 'Mutation'
 ```
@@ -82,7 +83,7 @@ mutation {
 }
 ```
 
-### POST'S GET/CREATE
+### POST'S GET/CREATE/UPDATE/DELETE
 #### Create a new Post object in database with 'Mutation'
 ```
 mutation {
