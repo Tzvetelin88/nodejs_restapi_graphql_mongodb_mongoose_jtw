@@ -44,99 +44,20 @@ type RootMutation {
 }
 ```
 
-## Simple GraphQL Queries:
+# How to use:
+ - Go to https://account.mongodb.com/ and crеate free account with MongoDB Atlas
+ - Clone the repo
+ - run "npm install" to install all packages from package.json
+ - Set your environment variables in .env file - PORT and MONGODB_URL
+ - Visit Application URL: https://localhost:<PORT>/  
+ - Write API request with Postman (example: GraphQL.postman_collection) or React Application (https://github.com/Tzvetelin88/reactjs_hooks_saga_redux).
+   Import "GraphQL.postman_collection" to your Postman for testing.
 
-### USER CREATE/LOGIN/LIST/UPDATE
-#### Create a new user object in database with 'Mutation'
-```
-mutation {
-  createUser(userInput: {email: "test@test.com", name: "Test User", password: "test123"}) {
-    _id,
-    name
-  }
-}
-```
-#### Get Created user data with 'Query'
-```
-{
-  login(email: "test@test.com", password: "test123") {
-    token
-    userId
-  }
-}
-```
-#### List User data, e.g. "status"
-```
-{
-  user {
-    status
-  }
-}
-```
-#### Update User data, e.g. "status"
-```
-mutation {
-  updateStatus(status: "Online") {
-    name
-    status
-  }
-}
-```
 
-### POST'S GET/CREATE/UPDATE/DELETE
-#### Create a new Post object in database with 'Mutation'
-```
-mutation {
-  createPost(postInput:{ title:"test1", content: "Body test 1", imageUrl:"img_url.png" }) {
-    _id
-    title
-    content
-    imageUrl
-  }
-}
-```
-#### Get Created Post's data with 'Query'
-```
-{
-  posts(page: 1) {
-    posts {
-      _id
-      title
-      content
-      creator {
-        name
-      }
-    }
-    totalPosts
-  }
-}
-```
-#### Get Created Post data with 'Query'
-```
-{
-  post(id: "<item_id>") {
-    _id
-    title
-    content
-    createdAt
-    updatedAt
-  }
-}
-```
-#### Update current POST data with Mutation
-```
-mutation {
-  updatePost(id: "<item_id>", postInput:{ title:"test1111", content: "Body test 1111", imageUrl:"img_url.png" }) {
-    _id
-    title
-    content
-    imageUrl
-  }
-}
-```
-#### Delete current POST data with Mutation
-```
-mutation {
-  deletePost(id: "<item_id>")
-}
-```
+# P.S.
+## In next release we will re-write all .then() promises with async/await for more readable and structured code!
+## Still you can use the new ECMA syntax to import/export, but be aware that many are still Experimental, depends of the version of Nodejs:
+ - v.15 https://nodejs.org/api/esm.html
+ - v.14 https://nodejs.org/docs/latest-v14.x/api/esm.html
+
+## Will rewrite to TypeScript

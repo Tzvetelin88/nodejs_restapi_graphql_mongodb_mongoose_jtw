@@ -1,4 +1,5 @@
 const path = require('path');
+const dotenv = require('dotenv');
 
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -10,6 +11,8 @@ const graphqlSchema = require('./graphql/schema');
 const graphqlResolver = require('./graphql/resolvers');
 const auth = require('./middleware/auth');
 const { clearImage } = require('./util/file');
+
+dotenv.config();
 
 const app = express();
 
@@ -98,10 +101,8 @@ mongoose.set('useNewUrlParser', true);
 mongoose.set('useUnifiedTopology', true);
 
 mongoose
-  .connect(
-    '<mongo_db_conn>'
-  )
+  .connect(process.env.MONGODB_URL)
   .then(result => {
-    app.listen(8080);
+    app.listen(process.env.PORT || 8080);
   })
   .catch(err => console.log(err));
